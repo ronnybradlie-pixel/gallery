@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Tag(models.Model):
@@ -9,7 +10,7 @@ class Tag(models.Model):
 
 class Photo(models.Model):
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='photos/')
+    image = CloudinaryField('photos')
     description = models.TextField(blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
     uploader =models.ForeignKey(User, on_delete=models.CASCADE)

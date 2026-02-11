@@ -11,9 +11,9 @@ def index(request):
     else:
         photos = Photo.objects.all().order_by('-created_at')
         tags= Tag.objects.all()
-        return render(request, 'galleryapp/index.html', {'photos': photos, 'tags': tags})
+        return render(request,'index.html', {'photos': photos, 'tags': tags})
     
-    def register(request):
+def register(request):
         if request.method == 'POST':
          form =UserCreationForm(request.POST)
         if form.is_valid():
@@ -22,4 +22,4 @@ def index(request):
                 return redirect('galleryapp:index')
         else:
             form = UserCreationForm()
-        return render(request, 'galleryapp/register.html', {'form': form})
+        return render(request, 'register.html', {'form': form})
