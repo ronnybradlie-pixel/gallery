@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'galleryproject.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parese(config('DATABASE_URL'))
+    'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
 
@@ -127,3 +127,5 @@ cloudinary.config (
     cloud_name=config('CLOUDINARY_CLOUD_NAME')
 )
 
+LOGIN_REDIRECT_URL='/'
+LOGOUT_REDIRECT_URL='login'
